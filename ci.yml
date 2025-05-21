@@ -1,4 +1,4 @@
-name: Python CI
+name: Python Bug Test
 
 on:
   push:
@@ -6,17 +6,12 @@ on:
       - main
 
 jobs:
-  run-python:
+  test-bug:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout repo
+      uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Run Python script
-        run: python hello.py
+    - name: Run bug.py
+      run: python3 bug.py
